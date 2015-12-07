@@ -11,6 +11,7 @@ export const orders = createReducer<State>(
   when(actions.orderCreated, (state: State, payload) => {
     console.log(payload.order);
     state.orders.push(payload.order);
+    console.log('STATE: ', state);
   }),
   when(actions.setOrderStatus, (state: State, {order, status}) => {
     state.orders.find(o => o.id === order.id).status = status;
